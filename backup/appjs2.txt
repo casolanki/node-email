@@ -1,0 +1,23 @@
+var express = require('express')
+var router = express.Router()
+var helper = require("sendgrid").mail
+
+const sgMail = require('@sendgrid/mail')
+
+const API_KEY = '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';
+sgMail.setApiKey(API_KEY);
+
+const message = {
+      to: 'uvchsolanki@gmail.com',
+      from:'uvchsolanki@gmail.com',
+      subject: 'New Email From Grid',
+      text: 'Hell Grid',
+      html: '<h1> New Email From Grid</h1>'
+
+}
+
+sgMail.send(message)
+.then(response=> console.log('Email send..'))
+.catch((error) => console.log(error.message));
+
+module.exports = router;

@@ -1,0 +1,59 @@
+var express = require('express')
+var router = express.Router()
+var helper = require("sendgrid").mail
+
+/* -- SEND GRID CONFIGRATION */
+
+/* -- SEND GRID CONFIGRATION */
+
+console.log('API Key before')
+// console.log('api key before:' +process.env.SENDGRID_API_KEY);
+const apikey = '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';
+console.log('api key before:' +apikey);
+/* GET users listing. */
+router.get('/:action', function(req, res, next) {
+
+    var action = req.params.action
+    console.log('API Key after:' + apikey )  
+    // console.log(process.env.SENDGRID_API_KEY);
+    if(action  == 'send')
+    {
+       console.log('api key:' +process.env.SENDGRID_API_KEY)
+        var from_email = new helper.Email('uvchsolanki@gmail.com')
+        var to_email = new helper.Email('casolanki091@gmail.com')
+        var subject = 'SendGrid Node.js Library!';
+        var content = new helper.Content ('text/html',  'Hello ,From Email Dispatch!!')
+        var mail = new helper.Mail(from_email, subject, to_email, content)
+        
+        var sg = require('sendgrid')(apikey)
+        var request = sg.emptyRequest({
+            method: 'POST',
+            path: '/v3/mail/send',
+            body: mail.toJSON(),
+        });
+        
+        sg.API(request, function(error, response) {
+           if(error)
+           {
+              res.json({
+                   confirmation: 'fail',
+                   message: error
+              })
+           }
+            res.json({
+                confirmationdfd: 'success',
+                response: response
+            })
+        })
+
+       return
+    }
+
+    res.json({
+        confirmation: 'false',
+        message: 'Invalid action'
+   })
+   
+});
+
+module.exports = router;
