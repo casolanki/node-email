@@ -4,7 +4,7 @@ var helper = require("sendgrid").mail
 
 const sgMail = require('@sendgrid/mail')
 
-const API_KEY = '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';
+const API_KEY = '';
 sgMail.setApiKey(API_KEY);
 
 const message = {
