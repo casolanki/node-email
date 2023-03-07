@@ -8,7 +8,7 @@ var helper = require("sendgrid").mail
 
 console.log('API Key before')
 // console.log('api key before:' +process.env.SENDGRID_API_KEY);
-const apikey = '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';
+const apikey = '';
 console.log('api key before:' +apikey);
 /* GET users listing. */
 router.get('/:action', function(req, res, next) {

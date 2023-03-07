@@ -1,6 +1,6 @@
 var helper = require('sendgrid').mail
 var Promise = require('bluebird')
-const apikey = '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';
+const apikey = '';
 
 module.exports = {
 

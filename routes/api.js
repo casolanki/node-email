@@ -5,7 +5,7 @@ var utils = require('../utils')
 /* -- SEND GRID CONFIGRATION */
 
 console.log('API Key before')
-const apikey = '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';
+const apikey = '';
 
 router.post('/:action', function(req, res, next) {
     
