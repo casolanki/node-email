@@ -10,8 +10,7 @@ module.exports = {
 saveLog: function(recipients, emailInfo,){
     recipients.forEach(function(recipient, i) {  
 
-        let payload={    
-            
+        let payload={            
             fromemail:  'uvchsolanki@gmail.com',
             toemail: recipient.trim(),
             subject: emailInfo.subject,
