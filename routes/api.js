@@ -7,7 +7,7 @@ var utils = require('../utils')
 console.log('API Key before')
 const apikey = '';
 
-router.post('/:action', function(req, res, next) {
+router.post('/:action', async function(req, res, next) {
     
     var action = req.params.action
 
@@ -18,13 +18,13 @@ router.post('/:action', function(req, res, next) {
         var recipients = req.body.recipients // comma separated list of emails
         var list = recipients.split(',')
 
+        await utils.EmailLog.saveLog(list,req.body);
         utils.Email.sendEmails(list,req.body,function(){
               res.json({
                 confirmation: 'success',
                 message: 'Email Sent'
             })
-        })       
-
+        })
 
        return
     }

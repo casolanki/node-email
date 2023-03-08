@@ -1,7 +1,7 @@
-var Email = require('./email')
+var Email = require('../services/email')
+var EmailLog = require('../services/emaillog')
 
 module.exports = {
-
-    Email: Email
-    
+    Email: Email,    
+    EmailLog: EmailLog    
 }

@@ -1,9 +1,11 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+var createError = require('http-errors')
+var express = require('express')
+var path = require('path')
+var cookieParser = require('cookie-parser') 
+var logger = require('morgan')
 require('dotenv').config();
+const sequelize = require('./database')
+
 
 var indexRouter = require('./routes/index');
 var api = require('./routes/api');
@@ -11,6 +13,8 @@ var api = require('./routes/api');
 var app = express();
 
 // view engine setup
+sequelize.sync({force: true}).then(()=> console.log('db is ready')); 
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hjs');
 
