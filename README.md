@@ -14,7 +14,7 @@ npm start
 ```
 ##### Below is the architectural diagram for email services.
 
-![My Image](/documents/services.png)
+![email-dispatch](https://user-images.githubusercontent.com/32414379/223727796-8c030a33-6151-4e97-bbc2-a2649e023087.JPG)
 
 After completing the setup, you can send a post request api request to the API gateway using Postman. I have added Postman script to the document directory; you can import that file, update the URL, and run it.
 
